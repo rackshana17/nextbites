@@ -1,6 +1,6 @@
 
 import { recipes } from "./data/recipes";
-import RecipeCard from "./components/RecipeCard";
+import RecipeGrid from "./components/RecipeGrid";
 
 export default function Home() {
   return (
@@ -22,11 +22,7 @@ export default function Home() {
           <p>Find your next delicious meal.</p>
         </div>
 
-        <div className="recipe-grid">
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
-          ))}
-        </div>
+        <RecipeGrid recipes={recipes} />
       </section>
     </main>
   );
