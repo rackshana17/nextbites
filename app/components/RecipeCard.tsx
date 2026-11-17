@@ -1,5 +1,6 @@
 
-import { Recipe } from "../data/recipes";
+import Link from "next/link";
+import type { Recipe } from "../data/recipes";
 
 export default function RecipeCard({
   recipe,
@@ -7,10 +8,18 @@ export default function RecipeCard({
   recipe: Recipe;
 }) {
   return (
-    <div className="recipe-card">
+    <Link
+      href={`/recipe/${recipe.id}`}
+      className="recipe-card"
+    >
+      <img
+        src={recipe.image}
+        alt={recipe.title}
+        className="recipe-image"
+      />
+
       <div className="recipe-card-content">
         <h2>{recipe.title}</h2>
-
         <p>{recipe.description}</p>
 
         <div className="recipe-info">
@@ -18,6 +27,6 @@ export default function RecipeCard({
           <span>{recipe.minutes} min</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
